@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+    @yield('links')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -51,6 +52,10 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
+            <form action="{{ route('logout') }}" method="POST" id="frmLogout">
+                @csrf
+            </form>
+            <button onclick="$('#frmLogout').submit();" class="btn btn-block btn-danger btn-sm" style="display:flex;align-items:center;">Logout</button>
             <!-- Navbar Search -->
             <li class="nav-item">
                 <a class="nav-link" data-widget="navbar-search" href="#" role="button">
@@ -899,6 +904,7 @@
 <script src="/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/dist/js/pages/dashboard.js"></script>
+@yield('scripts')
 </body>
 </html>
 
