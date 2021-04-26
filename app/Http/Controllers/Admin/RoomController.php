@@ -5,20 +5,56 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Room;
+use App\Models\Meet;
+use Illuminate\Http\Request;
 
 
 class RoomController extends Controller
 {
-    public function listing()
+    public function add()
     {
-        Room::create([
-            'title' => 'deneme odası',
-        ]);
-        return View('admin.room.listing');
+        return View('admin.room.add');
     }
 
-    public function detail(Room $room)
+    public function save(Request $request)
     {
-        dd($room);
+        $request->validate([
+            'title'         => 'required',
+        ]);
+
+        $room = Room::create([
+            'title' => $request->input('title'),
+            'description'   => $request->input('description'),
+        ]);
+
+        if ($room) {
+            return back()->withInput()->with('success', 'Oda Kaydedildi');
+        } else {
+            return back()->withInput()->with('error', 'Oda Kaydedilirken Hata oluştu!');
+        }
+    }
+
+    public function edit($id)
+    {
+        $room = Room::findOrFail($id);
+        return View('admin.room.edit', ['room' => $room]);
+    }
+
+    public function update(Room $room, Request $request)
+    {
+        $request->validate([
+            'title'         => 'required',
+        ]);
+
+        $room->title = $request->input('title');
+        $room->description = $request->input('description');
+
+        $save = $room->save();
+
+        if ($save) {
+            return back()->withInput()->with('success', 'Oda Bilgileri Güncellendi.');
+        } else {
+            return back()->withInput()->with('error', 'Oda Bilgileri Güncellenirken Bir Hata Oluştu!');
+        }
     }
 }

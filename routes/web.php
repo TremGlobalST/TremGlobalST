@@ -29,6 +29,10 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
 
    Route::group(['prefix' => '/rooms'], function () {
        Route::get('/list', [AdminRoomController::class, 'listing'])->name('rooms');
+       Route::get('/add', [AdminRoomController::class, 'add'])->name('room_add');
+       Route::post('/save', [AdminRoomController::class, 'save'])->name('room_save');
+       Route::get('/edit/{id}', [AdminRoomController::class, 'edit'])->name('room_edit');
+       Route::post('/update/{room}', [AdminRoomController::class, 'update'])->name('room_update');
        Route::get('/{room}', [AdminRoomController::class, 'detail'])->name('room');
    });
 
