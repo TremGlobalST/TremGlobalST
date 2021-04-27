@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Meet;
+use App\Models\Room;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $meetCount = count(Meet::all());
+        $roomCount = count(Room::all());
+        View::share('meetCount', $meetCount);
+        View::share('roomCount', $roomCount);
     }
 }
