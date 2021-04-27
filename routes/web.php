@@ -20,12 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
-   Route::get('/', [AdminHomeController::class, 'index'])->name('admin_login');
+   Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
 
    Route::group(['prefix' => '/rooms'], function () {
        Route::get('/listing', [AdminRoomController::class, 'listing'])->name('rooms');

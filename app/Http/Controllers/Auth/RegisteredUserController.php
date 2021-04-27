@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisteredUserController extends Controller
 {
+    private $verifiedUsers = [
+        'onur.altinsoy@tremglobal.com',
+    ];
     /**
      * Display the registration view.
      *
@@ -19,7 +22,11 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        if (in_array(Auth::user()->email, $this->verifiedUsers)) {
+            return view('auth.register');
+        } else {
+            return redirect()->route('admin');
+        }
     }
 
     /**
@@ -32,6 +39,9 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        if (!in_array(Auth::user()->email, $this->verifiedUsers))
+            return redirect()->route('admin');
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
