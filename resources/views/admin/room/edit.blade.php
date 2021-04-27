@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', $room->title . ' Düzenle')
+
 @section('links')
     <link rel="stylesheet" href="/plugins/fullcalendar/main.css">
 @endsection
@@ -12,12 +14,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">{{ $room->title }} Düzenle</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin') }}">Home</a></li>
+                            <li class="breadcrumb-item active">{{ $room->title }} Düzenle</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -26,8 +28,8 @@
         <!-- /.content-header -->
         <section class="content">
             <div class="container-fluid">
-                <div class="card card-warning">
-                    <div class="card-header">
+                <div class="card">
+                    <div class="card-header" style="background:#ec6724;color:#fff">
                         <h3 class="card-title">Toplantı Odası Güncelle</h3>
                     </div>
                     <!-- /.card-header -->

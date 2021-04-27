@@ -28,6 +28,6 @@ class HomeController extends Controller
             }
         }
 
-        return View('admin.home', ['events' => $roomCollections]);
+        return View('admin.home', ['events' => $roomCollections, 'rooms' => $rooms]);
     }
 }
