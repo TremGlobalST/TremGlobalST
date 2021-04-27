@@ -46,6 +46,7 @@
                                     <tr>
                                         <th>Başlık</th>
                                         <th>Açıklama</th>
+                                        <th>Tema</th>
                                         <th>Aksiyon</th>
                                     </tr>
                                     </thead>
@@ -54,6 +55,7 @@
                                         <tr>
                                             <td>{{ $room->title }}</td>
                                             <td>{{ $room->description }}</td>
+                                            <td><div class="alert" style="background:{{ $room->theme }}"></div></td>
                                             <td class="d-flex flex-row justify-content-end">
                                                 <a class="btn btn-block btn-primary btn-sm" style="width:100px;" href="{{ route('room_edit', ['id' => $room->id]) }}">Düzenle</a>
                                                 <a class="btn btn-danger btn-primary btn-sm ml-2 deleteRoom" data-room-id="{{ $room->id }}">Sil</a>

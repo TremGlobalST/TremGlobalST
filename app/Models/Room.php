@@ -15,7 +15,7 @@ class Room extends Model
     use HasSlug;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['title', 'description', 'theme'];
 
     /**
      * Get the options for generating the slug.

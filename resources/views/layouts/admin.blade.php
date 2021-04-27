@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
     @yield('links')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -904,6 +906,8 @@
 <script src="/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/dist/js/pages/dashboard.js"></script>
+!-- Toastr -->
+<script src="/plugins/toastr/toastr.min.js"></script>
 @yield('scripts')
 </body>
 </html>

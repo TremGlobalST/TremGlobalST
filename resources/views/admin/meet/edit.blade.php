@@ -151,5 +151,5 @@
                     $('#reservationdatetime_end').datetimepicker({ icons: { time: 'far fa-clock' }, format: 'Y-MM-DD HH:mm' });
                 });
             </script>
-                <script src="/js/calendar.render.js"></script>
+                <script src="{{ mix('/js/calendar.render.js') }}"></script>
 @endsection

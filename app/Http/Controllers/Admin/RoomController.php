@@ -13,7 +13,23 @@ class RoomController extends Controller
 {
     public function add()
     {
-        return View('admin.room.add');
+        $rooms = Room::with('meets')->get();
+        $roomCollections= [];
+
+        foreach ($rooms as $room) {
+            if ($room->meets) {
+                foreach ($room->meets as $meet) {
+                    array_push($roomCollections, [
+                        'title'             => $meet->title . ' - Oda: ' . $room->title,
+                        'start'             => $meet->start_date,
+                        'end'               => $meet->end_date,
+                        'backgroundColor'   => $room->theme,
+                        'borderColor'       => $room->theme,
+                    ]);
+                }
+            }
+        }
+        return View('admin.room.add', ['events' => $roomCollections]);
     }
 
     public function save(Request $request)
@@ -23,8 +39,9 @@ class RoomController extends Controller
         ]);
 
         $room = Room::create([
-            'title' => $request->input('title'),
+            'title'         => $request->input('title'),
             'description'   => $request->input('description'),
+            'theme'         => $request->input('theme'),
         ]);
 
         if ($room) {
@@ -37,7 +54,20 @@ class RoomController extends Controller
     public function edit($id)
     {
         $room = Room::findOrFail($id);
-        return View('admin.room.edit', ['room' => $room]);
+        $roomCollections= [];
+            if ($room->meets) {
+                foreach ($room->meets as $meet) {
+                    array_push($roomCollections, [
+                        'title'             => $meet->title . ' - Oda: ' . $room->title,
+                        'start'             => $meet->start_date,
+                        'end'               => $meet->end_date,
+                        'backgroundColor'   => $room->theme,
+                        'borderColor'       => $room->theme,
+                    ]);
+                }
+            }
+
+        return View('admin.room.edit', ['room' => $room, 'events' => $roomCollections]);
     }
 
     public function update(Room $room, Request $request)
@@ -48,6 +78,7 @@ class RoomController extends Controller
 
         $room->title = $request->input('title');
         $room->description = $request->input('description');
+        $room->theme = $request->input('theme');
 
         $save = $room->save();
 

@@ -618,5 +618,5 @@
         <script>
             const events = {!! json_encode($events) !!};
         </script>
-        <script src="/js/calendar.render.js"></script>
+        <script src="{{ mix('/js/calendar.render.js') }}"></script>
 @endsection

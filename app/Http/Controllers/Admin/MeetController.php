@@ -30,8 +30,8 @@ class MeetController extends Controller
                         'title'             => $meet->title . ' - Oda: ' . $room->title,
                         'start'             => $meet->start_date,
                         'end'               => $meet->end_date,
-                        'backgroundColor'   => '#f56954',
-                        'borderColor'       => '#f56954',
+                        'backgroundColor'   => $room->theme,
+                        'borderColor'       => $room->theme,
                     ]);
                 }
             }
@@ -145,8 +145,8 @@ class MeetController extends Controller
                         'title'             => $meet->title . ' - Oda: ' . $room->title,
                         'start'             => $meet->start_date,
                         'end'               => $meet->end_date,
-                        'backgroundColor'   => '#f56954',
-                        'borderColor'       => '#f56954',
+                        'backgroundColor'   => $room->theme,
+                        'borderColor'       => $room->theme,
                     ]);
                 }
             }
