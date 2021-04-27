@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header" style="background:#ec6724;color:#fff">
+                            <div class="card-header">
                                 <h3 class="card-title">Oda Listesi</h3>
                             </div>
                             <!-- /.card-header -->

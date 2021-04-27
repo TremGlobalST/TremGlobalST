@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="63b8b34a-e680-4270-90ec-ab11c6de4680" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/meet/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/meet/add.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/meet/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/meet/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/meet/listing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/meet/listing.blade.php" afterDir="false" />
@@ -194,7 +193,7 @@
       <workItem from="1619018146609" duration="1231000" />
       <workItem from="1619071620638" duration="23406000" />
       <workItem from="1619381310085" duration="17785000" />
-      <workItem from="1619506348458" duration="13023000" />
+      <workItem from="1619506348458" duration="13393000" />
     </task>
     <servers />
   </component>

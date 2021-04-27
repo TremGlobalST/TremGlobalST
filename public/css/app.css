@@ -32088,6 +32088,10 @@ select {
   --tw-backdrop-sepia: sepia(100%);
 }
 
+.fc-daygrid-event-harness{
+  cursor:pointer
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

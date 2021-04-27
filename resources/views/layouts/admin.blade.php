@@ -29,6 +29,8 @@
     <!-- Toastr -->
     <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
 
+    <link rel="stylesheet" href="/css/app.css">
+
     <link rel="icon" href="/images/favicon.png" type="image/png">
     @yield('links')
 </head>

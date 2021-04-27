@@ -29,7 +29,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="card">
-                    <div class="card-header" style="background:#ec6724;color:#fff">
+                    <div class="card-header">
                         <h3 class="card-title">Toplantı Düzenle</h3>
                     </div>
                     <!-- /.card-header -->
