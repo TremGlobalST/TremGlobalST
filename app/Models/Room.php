@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Meet;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Room extends Model
 {
     use HasFactory;
     use HasSlug;
+    use SoftDeletes;
 
     protected $fillable = ['title', 'description'];
 

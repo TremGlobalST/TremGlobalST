@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('links')
+    <link rel="stylesheet" href="/plugins/fullcalendar/main.css">
+@endsection
+
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -88,6 +92,13 @@
                 <!-- /.row -->
                 <!-- Main row -->
                 <div class="row">
+                    <div class="col-12">
+                        <div class="card card-primary">
+                            <div class="card-body p-0">
+                                <div id="calendar"></div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Left col -->
                     <section class="col-lg-7 connectedSortable">
                         <!-- Custom tabs (Charts with tabs)-->
@@ -588,10 +599,7 @@
                                 <!-- /. tools -->
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body pt-0">
-                                <!--The calendar -->
-                                <div id="calendar" style="width: 100%"></div>
-                            </div>
+
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
@@ -601,4 +609,14 @@
                 <!-- /.row (main row) -->
             </div><!-- /.container-fluid -->
         </section>
+@endsection
+
+@section('scripts')
+    <!-- fullCalendar 2.2.5 -->
+        <script src="/plugins/moment/moment.min.js"></script>
+        <script src="/plugins/fullcalendar/main.js"></script>
+        <script>
+            const events = {!! json_encode($events) !!};
+        </script>
+        <script src="/js/calendar.render.js"></script>
 @endsection

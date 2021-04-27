@@ -11,6 +11,13 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -170,7 +177,7 @@
       <workItem from="1619016650222" duration="256000" />
       <workItem from="1619018146609" duration="1231000" />
       <workItem from="1619071620638" duration="23406000" />
-      <workItem from="1619381310085" duration="7778000" />
+      <workItem from="1619381310085" duration="17785000" />
     </task>
     <servers />
   </component>

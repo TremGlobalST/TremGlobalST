@@ -20,7 +20,24 @@ class MeetController extends Controller
     public function add()
     {
         $rooms = Room::with('meets')->get();
-        return View('admin.meet.add', ['rooms' => $rooms]);
+
+        $roomCollections= [];
+
+        foreach ($rooms as $room) {
+            if ($room->meets) {
+                foreach ($room->meets as $meet) {
+                    array_push($roomCollections, [
+                        'title'             => $meet->title . ' - Oda: ' . $room->title,
+                        'start'             => $meet->start_date,
+                        'end'               => $meet->end_date,
+                        'backgroundColor'   => '#f56954',
+                        'borderColor'       => '#f56954',
+                    ]);
+                }
+            }
+        }
+
+        return View('admin.meet.add', ['rooms' => $rooms, 'events' => $roomCollections]);
     }
 
     public function save(Request $request)
@@ -118,7 +135,24 @@ class MeetController extends Controller
     public function edit(Meet $meet)
     {
         $rooms = Room::with('meets')->get();
-        return View('admin.meet.edit', ['meet' => $meet, 'rooms' => $rooms]);
+
+        $roomCollections= [];
+
+        foreach ($rooms as $room) {
+            if ($room->meets) {
+                foreach ($room->meets as $meet) {
+                    array_push($roomCollections, [
+                        'title'             => $meet->title . ' - Oda: ' . $room->title,
+                        'start'             => $meet->start_date,
+                        'end'               => $meet->end_date,
+                        'backgroundColor'   => '#f56954',
+                        'borderColor'       => '#f56954',
+                    ]);
+                }
+            }
+        }
+
+        return View('admin.meet.edit', ['meet' => $meet, 'rooms' => $rooms, 'events' => $roomCollections]);
     }
 
     private function _update(Meet $meet, Request $request): bool

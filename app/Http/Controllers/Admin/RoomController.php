@@ -57,4 +57,21 @@ class RoomController extends Controller
             return back()->withInput()->with('error', 'Oda Bilgileri Güncellenirken Bir Hata Oluştu!');
         }
     }
+
+    public function delete($id)
+    {
+        $room = Room::findOrFail($id);
+
+        if ($room->delete()) {
+            return back()->with('success', 'Oda Silindi!');
+        } else {
+            return back()->with('error', 'Oda Silinemedi');
+        }
+    }
+
+    public function listing()
+    {
+        $rooms = Room::with('meets')->orderBy('id', 'DESC')->get();
+        return View('admin.room.listing', ['rooms' => $rooms]);
+    }
 }

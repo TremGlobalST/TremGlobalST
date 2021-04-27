@@ -890,7 +890,7 @@
 <!-- jQuery Knob Chart -->
 <script src="/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
-<script src="/plugins/moment/moment.min.js"></script>
+<script src="/plugins/moment/moment-with-locales.min.js"></script>
 <script src="/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>

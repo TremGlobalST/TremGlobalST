@@ -28,12 +28,12 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
    Route::get('/', [AdminHomeController::class, 'index'])->name('admin_login');
 
    Route::group(['prefix' => '/rooms'], function () {
-       Route::get('/list', [AdminRoomController::class, 'listing'])->name('rooms');
+       Route::get('/listing', [AdminRoomController::class, 'listing'])->name('rooms');
        Route::get('/add', [AdminRoomController::class, 'add'])->name('room_add');
        Route::post('/save', [AdminRoomController::class, 'save'])->name('room_save');
        Route::get('/edit/{id}', [AdminRoomController::class, 'edit'])->name('room_edit');
        Route::post('/update/{room}', [AdminRoomController::class, 'update'])->name('room_update');
-       Route::get('/{room}', [AdminRoomController::class, 'detail'])->name('room');
+       Route::get('/delete/{id}', [AdminRoomController::class,'delete'])->name('room_delete');
    });
 
    Route::group(['prefix' => '/meets'], function () {
@@ -42,7 +42,6 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
        Route::get('/listing', [AdminMeetController::class, 'listing'])->name('meets');
        Route::get('/edit/{meet}', [AdminMeetController::class, 'edit'])->name('meet_edit');
        Route::post('/update/{meet}', [AdminMeetController::class, 'update'])->name('meet_update');
-       Route::get('/{meet}', [AdminMeetController::class, 'detail'])->name('meet');
    });
 });
 

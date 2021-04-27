@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('links')
+    <link rel="stylesheet" href="/plugins/fullcalendar/main.css">
+@endsection
+
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -31,7 +35,7 @@
                         <form method="POST" action="{{ route('meet_save') }}">
                             @csrf
                             <div class="row">
-                                <div class="col-6 mx-auto">
+                                <div class="col-3">
                                     <div class="form-group">
                                         <label for="">Toplantı Odası *</label>
                                         <select name="room" id="" class="form-control">
@@ -48,68 +52,77 @@
                                         <label for="">Toplantı Açıklaması</label>
                                         <textarea class="form-control" placeholder="Açıklama" name="description" value="{{ old('description') }}"></textarea>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-3">
-                                    <div class="form-group">
-                                        <label>Başlangıç *</label>
-                                        <div class="input-group date" id="reservationdatetime_start" data-target-input="nearest">
-                                            <input type="text" name="start_date" class="form-control datetimepicker-input"
-                                                   data-target="#reservationdatetime_start" data-toggle="datetimepicker"
-                                                   autocomplete="off"
-                                                    required value="{{ old('start_date') }}"/>
-                                            <div class="input-group-append" data-target="#reservationdatetime_start" data-toggle="datetimepicker">
-                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Başlangıç *</label>
+                                                <div class="input-group date" id="reservationdatetime_start" data-target-input="nearest">
+                                                    <input type="text" name="start_date" class="form-control datetimepicker-input"
+                                                           data-target="#reservationdatetime_start" data-toggle="datetimepicker"
+                                                           autocomplete="off"
+                                                           required value="{{ old('start_date') }}"/>
+                                                    <div class="input-group-append" data-target="#reservationdatetime_start" data-toggle="datetimepicker">
+                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="form-group">
-                                        <label>Bitiş *</label>
-                                        <div class="input-group date" id="reservationdatetime_end" data-target-input="nearest">
-                                            <input type="text" name="end_date" class="form-control datetimepicker-input"
-                                                   data-target="#reservationdatetime_end" data-toggle="datetimepicker"
-                                                   autocomplete="off"
-                                                    required value="{{ old('end_date') }}"/>
-                                            <div class="input-group-append" data-target="#reservationdatetime_end" data-toggle="datetimepicker">
-                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 mx-auto">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="w-25 ml-auto">
-                                                <button class="btn btn-block btn-primary float-right" type="submit">Oluştur</button>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Bitiş *</label>
+                                                <div class="input-group date" id="reservationdatetime_end" data-target-input="nearest">
+                                                    <input type="text" name="end_date" class="form-control datetimepicker-input"
+                                                           data-target="#reservationdatetime_end" data-toggle="datetimepicker"
+                                                           autocomplete="off"
+                                                           required value="{{ old('end_date') }}"/>
+                                                    <div class="input-group-append" data-target="#reservationdatetime_end" data-toggle="datetimepicker">
+                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col mt-2">
-                                            @if ($errors->any())
-                                                <div class="alert alert-danger">
-                                                    <ul>
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
+                                        <div class="col-12">
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="w-100 ml-auto">
+                                                        <button class="btn btn-block btn-primary float-right" type="submit">Oluştur</button>
+                                                    </div>
                                                 </div>
-                                            @endif
-                                            @if (session('error'))
-                                                <div class="alert alert-danger">
-                                                    {{ session('error') }}
+                                            </div>
+                                            <div class="row">
+                                                <div class="col mt-2">
+                                                    @if ($errors->any())
+                                                        <div class="alert alert-danger">
+                                                            <ul>
+                                                                @foreach ($errors->all() as $error)
+                                                                    <li>{{ $error }}</li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    @endif
+                                                    @if (session('error'))
+                                                        <div class="alert alert-danger">
+                                                            {{ session('error') }}
+                                                        </div>
+                                                    @endif
+                                                    @if (session('success'))
+                                                        <div class="alert alert-success">
+                                                            {{ session('success') }}
+                                                        </div>
+                                                    @endif
                                                 </div>
-                                            @endif
-                                            @if (session('success'))
-                                                <div class="alert alert-success">
-                                                    {{ session('success') }}
-                                                </div>
-                                            @endif
+                                            </div>
+
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="card card-primary">
+                                        <div class="card-body p-0">
+                                            <div id="calendar"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -122,11 +135,16 @@
 @endsection
 
 @section('scripts')
+    <!-- fullCalendar 2.2.5 -->
+        <script src="/plugins/moment/moment-with-locales.min.js"></script>
+        <script src="/plugins/fullcalendar/main.js"></script>
             <script>
-                const meets = {!! json_encode($rooms) !!}
+                const meets = {!! json_encode($rooms) !!};
+                const events = {!! json_encode($events) !!};
                 $(document).ready(function() {
-                    $('#reservationdatetime_start').datetimepicker({ icons: { time: 'far fa-clock' }, format: 'Y-MM-DD HH:mm'});
-                    $('#reservationdatetime_end').datetimepicker({ icons: { time: 'far fa-clock' }, format: 'Y-MM-DD HH:mm' });
+                    $('#reservationdatetime_start').datetimepicker({ icons: { time: 'far fa-clock' }, format: 'Y-MM-DD HH:mm', locale: 'tr'});
+                    $('#reservationdatetime_end').datetimepicker({ icons: { time: 'far fa-clock' }, format: 'Y-MM-DD HH:mm', locale: 'tr' });
                 });
             </script>
+        <script src="/js/calendar.render.js"></script>
 @endsection

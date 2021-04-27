@@ -51,7 +51,7 @@
                                         @foreach($meets as $meet)
                                             <tr>
                                                 <td>{{ $meet->title }}</td>
-                                                <td>{{ $meet->room->title }}</td>
+                                                <td>{{ $meet->room ? $meet->room->title : null }}</td>
                                                 <td>{{ $meet->start_date }}</td>
                                                 <td>{{ $meet->end_date }}</td>
                                                 <td>{{ $meet->updated_at }}</td>
