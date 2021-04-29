@@ -18,3 +18,5 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
 ]);
 
 mix.js('resources/js/calendar.render.js', 'public/js');
+mix.js('resources/js/vue.app.js', 'public/js').vue();
+mix.sass('resources/css/screen.scss', 'public/css/screen.css');

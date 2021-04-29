@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/calendar.render.js": "/js/calendar.render.js",
-    "/css/app.css": "/css/app.css"
+    "/js/vue.app.js": "/js/vue.app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/screen.css": "/css/screen.css"
 }

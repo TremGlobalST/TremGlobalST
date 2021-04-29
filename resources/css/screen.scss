@@ -1,0 +1,82 @@
+$primaryColor: #eb6725;
+$secondaryColor: #005cb9;
+$darkColor: #6d6f72;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body {
+    display: flex;
+}
+.app {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    flex-grow: 1;
+    .bg{
+        background: url('/images/bg.jpg') no-repeat;
+        background-size: cover;
+        height: 100%;
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            span.date{
+                color: $primaryColor;
+                font-weight: 300;
+                font-size: 46px;
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                h1 {
+                    color: $secondaryColor;
+                    font-size: 85px;
+                    font-weight: 300;
+                    margin: 0;
+                }
+                span.meet {
+                    font-size: 53px;
+                    font-weight: 500;
+                    color: $darkColor;
+                }
+                span.time {
+                    font-size: 67px;
+                    font-weight: 300;
+                    color: $primaryColor;
+                }
+            }
+            .footer {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                img {
+                    width: 25%;
+                }
+            }
+        }
+    }
+    .rooms {
+        display: flex;
+        padding: 20px;
+        justify-content: space-between;
+        a {
+            flex-grow: 1;
+            margin: 0 15px;
+            text-decoration: none;
+            .room {
+                height: 90px;
+                box-shadow: 0 0 6px 3px #ccc;
+                text-align: center;
+                line-height: 92px;
+            }
+        }
+    }
+}

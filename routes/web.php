@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 use App\Http\Controllers\Admin\MeetController as AdminMeetController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,9 @@ use App\Http\Controllers\Admin\MeetController as AdminMeetController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/room/{slug}', [RoomController::class, 'room'])->name('room');
+Route::post('/api/room/{id}/meet', [RoomController::class, 'meet']);
 
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
    Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
