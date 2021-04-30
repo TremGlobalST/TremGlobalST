@@ -21,6 +21,9 @@ use App\Http\Controllers\RoomController;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/room/{slug}', [RoomController::class, 'room'])->name('room');
 Route::post('/api/room/{id}/meet', [RoomController::class, 'meet']);
+Route::get('/sunum', function() {
+    return View('sunum');
+});
 
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
    Route::get('/', [AdminHomeController::class, 'index'])->name('admin');

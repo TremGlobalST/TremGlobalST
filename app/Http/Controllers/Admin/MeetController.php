@@ -62,7 +62,7 @@ class MeetController extends Controller
                 }
             }
             if ($checkMeet) {
-                return back()->withInput()->with('error', 'Toplantı Kaydedilemedi! Bu saatler içerisinde ododaaya toplantı set edilmiştir.');
+                return back()->withInput()->with('error', 'Toplantı Kaydedilemedi! Bu saatler içerisinde odaya toplantı set edilmiştir.');
             } else {
                 if ($this->_save($request)) {
                     return back()->withInput()->with('success', 'Toplantı Kaydedildi');
