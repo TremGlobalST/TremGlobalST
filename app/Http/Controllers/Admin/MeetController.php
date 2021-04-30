@@ -25,11 +25,11 @@ class MeetController extends Controller
 
         foreach ($rooms as $room) {
             if ($room->meets) {
-                foreach ($room->meets as $meet) {
+                foreach ($room->meets as $item) {
                     array_push($roomCollections, [
-                        'title'             => $meet->title . ' - Oda: ' . $room->title,
-                        'start'             => $meet->start_date,
-                        'end'               => $meet->end_date,
+                        'title'             => $item->title . ' - Oda: ' . $room->title,
+                        'start'             => $item->start_date,
+                        'end'               => $item->end_date,
                         'backgroundColor'   => $room->theme,
                         'borderColor'       => $room->theme,
                     ]);
@@ -53,11 +53,11 @@ class MeetController extends Controller
 
         if (count($meets) > 0) {
             $checkMeet = false;
-            foreach ($meets as $meet) {
-                if ((strtotime($request->input('start_date')) >= strtotime($meet->start_date) &&
-                    strtotime($request->input('start_date')) <= strtotime($meet->end_date)) ||
-                    (strtotime($request->input('end_date')) >= strtotime($meet->start_date) &&
-                        strtotime($request->input('end_date')) <= strtotime($meet->end_date))) {
+            foreach ($meets as $item) {
+                if ((strtotime($request->input('start_date')) >= strtotime($item->start_date) &&
+                    strtotime($request->input('start_date')) <= strtotime($item->end_date)) ||
+                    (strtotime($request->input('end_date')) >= strtotime($item->start_date) &&
+                        strtotime($request->input('end_date')) <= strtotime($item->end_date))) {
                     $checkMeet = true;
                 }
             }
@@ -140,11 +140,11 @@ class MeetController extends Controller
 
         foreach ($rooms as $room) {
             if ($room->meets) {
-                foreach ($room->meets as $meet) {
+                foreach ($room->meets as $item) {
                     array_push($roomCollections, [
-                        'title'             => $meet->title . ' - Oda: ' . $room->title,
-                        'start'             => $meet->start_date,
-                        'end'               => $meet->end_date,
+                        'title'             => $item->title . ' - Oda: ' . $room->title,
+                        'start'             => $item->start_date,
+                        'end'               => $item->end_date,
                         'backgroundColor'   => $room->theme,
                         'borderColor'       => $room->theme,
                     ]);
