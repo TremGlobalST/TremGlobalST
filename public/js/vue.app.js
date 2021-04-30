@@ -36350,9 +36350,12 @@ new vue__WEBPACK_IMPORTED_MODULE_3__.default({
     meetTitle: '',
     meetStart: '',
     meetEnd: '',
-    noMeet: true,
-    startingMeet: false,
-    whileMeet: true
+    meetStartRaw: '',
+    meetEndRaw: '',
+    noMeet: false,
+    startingMeet: true,
+    whileMeet: false,
+    remainingTime: ''
   },
   mounted: function () {
     var _mounted = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -36366,11 +36369,11 @@ new vue__WEBPACK_IMPORTED_MODULE_3__.default({
               setInterval(function () {
                 _this.date = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('HH:mm - DD/MM/YYYY');
               }, 1000);
-              setInterval(function () {
-                _this.getMeet();
-              }, 60000);
+              /*setInterval(() => {
+                  this.getMeet();
+              }, 60000);*/
 
-            case 3:
+            case 2:
             case "end":
               return _context.stop();
           }
@@ -36384,6 +36387,11 @@ new vue__WEBPACK_IMPORTED_MODULE_3__.default({
 
     return mounted;
   }(),
+  watch: {
+    date: function date() {
+      this.getMeet();
+    }
+  },
   methods: {
     getMeet: function () {
       var _getMeet = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -36397,12 +36405,24 @@ new vue__WEBPACK_IMPORTED_MODULE_3__.default({
 
               case 2:
                 response = _context2.sent;
-                this.meetTitle = response.data.title;
-                this.meetStart = moment__WEBPACK_IMPORTED_MODULE_1___default()(response.data.start_date).format('HH:mm');
-                this.meetEnd = moment__WEBPACK_IMPORTED_MODULE_1___default()(response.data.end_date).format('HH:mm');
-                console.log(response);
 
-              case 7:
+                if (response.data !== null) {
+                  this.meetTitle = response.data.title;
+                  this.meetStart = moment__WEBPACK_IMPORTED_MODULE_1___default()(response.data.start_date).format('HH:mm');
+                  this.meetEnd = moment__WEBPACK_IMPORTED_MODULE_1___default()(response.data.end_date).format('HH:mm');
+                  this.meetStartRaw = moment__WEBPACK_IMPORTED_MODULE_1___default()(response.data.start_date);
+                  this.meetEndRaw = moment__WEBPACK_IMPORTED_MODULE_1___default()(response.data.end_date);
+                } else {
+                  this.meetTitle = '';
+                  this.meetStart = '';
+                  this.meetEnd = '';
+                  this.meetStartRaw = '';
+                  this.meetEndRaw = '';
+                }
+
+                this.dateDiff();
+
+              case 5:
               case "end":
                 return _context2.stop();
             }
@@ -36415,7 +36435,30 @@ new vue__WEBPACK_IMPORTED_MODULE_3__.default({
       }
 
       return getMeet;
-    }()
+    }(),
+    dateDiff: function dateDiff() {
+      var now = moment__WEBPACK_IMPORTED_MODULE_1___default()();
+      console.log(now.diff(this.meetStartRaw, 'minutes') - 1, now.diff(this.meetStartRaw, 'minutes'));
+
+      if (this.meetStartRaw === '') {
+        this.noMeet = true;
+        this.startingMeet = false;
+        this.whileMeet = false;
+      } else if (now.diff(this.meetStartRaw, 'minutes') - 1 < -10) {
+        this.noMeet = true;
+        this.startingMeet = false;
+        this.whileMeet = false;
+      } else if (now.diff(this.meetStartRaw, 'minutes') - 1 >= -10 && now.diff(this.meetStartRaw, 'minutes') - 1 < 0 && this.meetStart != moment__WEBPACK_IMPORTED_MODULE_1___default()().format('HH:mm')) {
+        this.noMeet = false;
+        this.startingMeet = true;
+        this.whileMeet = false;
+        this.remainingTime = Math.abs(now.diff(this.meetStartRaw, 'minutes') - 1);
+      } else if (now.diff(this.meetStartRaw, 'minutes') - 1 >= 0 || this.meetStart == moment__WEBPACK_IMPORTED_MODULE_1___default()().format('HH:mm')) {
+        this.noMeet = false;
+        this.startingMeet = false;
+        this.whileMeet = true;
+      }
+    }
   } //unMounted: () => clearInterval(this.interval),
 
 });

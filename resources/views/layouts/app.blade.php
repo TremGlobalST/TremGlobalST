@@ -14,9 +14,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/screen.css') }}">
         <link rel="icon" href="/images/favicon.png" type="image/png">
-
-        <!-- Scripts -->
-        <script src="{{ asset('js/vue.app.js') }}" defer></script>
+        @yield('links')
     </head>
     <body class="font-sans antialiased">
         <div class="app">

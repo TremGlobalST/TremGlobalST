@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Meet;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class RoomController extends Controller
 {
@@ -17,7 +19,7 @@ class RoomController extends Controller
     public function meet($id)
     {
         $meet = Meet::where('room_id', $id)
-            ->where('start_date', '>', date('Y-m-d H:i:s'))
+            ->where('end_date', '>', new \DateTime('now'))
             ->where('start_date', '<', new \DateTime('tomorrow'))
             ->first();
         return json_encode($meet);

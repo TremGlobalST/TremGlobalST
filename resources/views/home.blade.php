@@ -4,20 +4,12 @@
 
 @section('content')
     <div class="rooms">
-        <a href="">
-            <div class="room">
-                Oda 1
-            </div>
-        </a>
-        <a href="">
-            <div class="room">
-                Oda 1
-            </div>
-        </a>
-        <a href="">
-            <div class="room">
-                Oda 1
-            </div>
-        </a>
+        @foreach($rooms as $room)
+            <a href="{{ route('room', ['slug' => $room->slug]) }}">
+                <div class="room" style="background:{{ $room->theme }}">
+                    {{ $room->title }}
+                </div>
+            </a>
+        @endforeach
     </div>
 @endsection

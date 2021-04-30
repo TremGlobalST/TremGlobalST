@@ -31,6 +31,11 @@ body {
                 font-weight: 300;
                 font-size: 46px;
             }
+            span.room-name {
+                font-size: 47px;
+                color: $secondaryColor;
+                font-weight: 300;
+            }
             .content {
                 display: flex;
                 flex-direction: column;
@@ -46,11 +51,29 @@ body {
                     font-size: 53px;
                     font-weight: 500;
                     color: $darkColor;
+                    text-align: center;
+                }
+                span.meet-starting {
+                    font-size: 50px;
+                    font-weight: 500;
+                    color: $darkColor;
+                    text-align: center;
+                    span.meet-name {
+                        color: $secondaryColor;
+                    }
                 }
                 span.time {
                     font-size: 67px;
                     font-weight: 300;
                     color: $primaryColor;
+                }
+            }
+            .video-wrapper {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                video {
+                    max-width: 100%;
                 }
             }
             .footer {
@@ -71,6 +94,7 @@ body {
             flex-grow: 1;
             margin: 0 15px;
             text-decoration: none;
+            color: #fff;
             .room {
                 height: 90px;
                 box-shadow: 0 0 6px 3px #ccc;

@@ -32,6 +32,11 @@ body {
   font-weight: 300;
   font-size: 46px;
 }
+.app .bg .wrapper span.room-name {
+  font-size: 47px;
+  color: #005cb9;
+  font-weight: 300;
+}
 .app .bg .wrapper .content {
   display: flex;
   flex-direction: column;
@@ -48,11 +53,29 @@ body {
   font-size: 53px;
   font-weight: 500;
   color: #6d6f72;
+  text-align: center;
+}
+.app .bg .wrapper .content span.meet-starting {
+  font-size: 50px;
+  font-weight: 500;
+  color: #6d6f72;
+  text-align: center;
+}
+.app .bg .wrapper .content span.meet-starting span.meet-name {
+  color: #005cb9;
 }
 .app .bg .wrapper .content span.time {
   font-size: 67px;
   font-weight: 300;
   color: #eb6725;
+}
+.app .bg .wrapper .video-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.app .bg .wrapper .video-wrapper video {
+  max-width: 100%;
 }
 .app .bg .wrapper .footer {
   display: flex;
@@ -71,6 +94,7 @@ body {
   flex-grow: 1;
   margin: 0 15px;
   text-decoration: none;
+  color: #fff;
 }
 .app .rooms a .room {
   height: 90px;
