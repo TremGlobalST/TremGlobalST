@@ -55,7 +55,7 @@
                                         <textarea class="form-control" placeholder="Açıklama" name="description" value="{{ old('description') }}"></textarea>
                                     </div>
                                     <div class="row d-flex justify-content-center">
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <div class="form-group">
                                                 <label>Başlangıç *</label>
                                                 <div class="input-group date" id="reservationdatetime_start" data-target-input="nearest">
@@ -69,7 +69,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <div class="form-group">
                                                 <label>Bitiş *</label>
                                                 <div class="input-group date" id="reservationdatetime_end" data-target-input="nearest">
