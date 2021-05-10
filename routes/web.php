@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 use App\Http\Controllers\Admin\MeetController as AdminMeetController;
+use App\Http\Controllers\Admin\TvScreenController as AdminTvScreenController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\TvScreenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +26,13 @@ Route::post('/api/room/{id}/meet', [RoomController::class, 'meet']);
 Route::get('/sunum', function() {
     return View('sunum');
 });
+Route::get('/tv-screen', [TvScreenController::class, 'index'])->name('tv_screen');
 
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
    Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
+
+   Route::get('/tv-screen', [AdminTvScreenController::class, 'index'])->name('video_add');
+   Route::post('/tv-screen', [AdminTvScreenController::class, 'save'])->name('video_save');
 
    Route::group(['prefix' => '/rooms'], function () {
        Route::get('/listing', [AdminRoomController::class, 'listing'])->name('rooms');

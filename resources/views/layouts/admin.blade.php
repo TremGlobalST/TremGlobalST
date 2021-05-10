@@ -154,6 +154,14 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('video_add') }}" class="nav-link {{ Route::current()->getName() == 'video_add' ? 'active' : null }}">
+                            <i class="nav-icon fas fa-tv"></i>
+                            <p>
+                                TV Ekranı Ayarları
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="/register" class="nav-link">
                             <i class="nav-icon fas fa-user-alt"></i>
                             <p>
