@@ -4,17 +4,24 @@
 
 @section('links')
 <style>
-.tv-link{
+.tv-link, .welcome-link {
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 200px;
     height: 100px;
-    background: red;
     color: #fff;
     box-shadow: 0 0 6px 3px #ccc;
 }
-.tv-link a{
+.tv-link {
+    right: 30px;
+    background: red;
+}
+.welcome-link {
+    right: 260px;
+    background: blue;
+}
+.tv-link a, .welcome-link a{
     width: 100%;
     height: 100%;
     text-align: center;
@@ -36,6 +43,11 @@
                 </div>
             </a>
         @endforeach
+    </div>
+    <div class="welcome-link">
+        <a href="{{ route('welcome') }}">
+            Welcome Screen
+        </a>
     </div>
     <div class="tv-link">
         <a href="{{ route('tv_screen') }}">

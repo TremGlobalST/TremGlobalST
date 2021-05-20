@@ -5,9 +5,11 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 use App\Http\Controllers\Admin\MeetController as AdminMeetController;
 use App\Http\Controllers\Admin\TvScreenController as AdminTvScreenController;
+use App\Http\Controllers\Admin\WelcomeController as AdminWelcomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TvScreenController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +29,16 @@ Route::get('/sunum', function() {
     return View('sunum');
 });
 Route::get('/tv-screen', [TvScreenController::class, 'index'])->name('tv_screen');
+Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
 
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
    Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
 
    Route::get('/tv-screen', [AdminTvScreenController::class, 'index'])->name('video_add');
    Route::post('/tv-screen', [AdminTvScreenController::class, 'save'])->name('video_save');
+
+   Route::get('/welcome', [AdminWelcomeController::class, 'index'])->name('welcome_edit');
+   Route::post('/welcome', [AdminWelcomeController::class, 'save'])->name('welcome_save');
 
    Route::group(['prefix' => '/rooms'], function () {
        Route::get('/listing', [AdminRoomController::class, 'listing'])->name('rooms');
