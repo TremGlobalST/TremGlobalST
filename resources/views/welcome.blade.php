@@ -21,12 +21,12 @@
             background: url({{ $welcome->header_image ?? '/images/burak-ozcivit-commercial-desktop2.jpg' }}) no-repeat;
             background-size: cover;
             width: 100%;
-            height: 300px;
+            height: 350px;
         }
 
         #content {
             display: flex;
-            margin-top: -2rem;
+            margin-top: 0;
             justify-content: center;
             align-items: center;
         }
@@ -144,11 +144,14 @@
         }
         @media (min-width: 1680px) {
             #welcome-text {
-                top: 6%;
+                top: 4%;
             }
             #content .video-container {
                 width: 65%;
             height: 500px;
+            }
+            #content {
+            margin-top: 4rem;
         }
         }
     </style>
