@@ -38,10 +38,15 @@ class RoomController extends Controller
             'title'         => 'required',
         ]);
 
+        $slugify = $this->slugify($request->input('title'));
+
+        $slug = $this->hasSlug($slugify);
+
         $room = Room::create([
             'title'         => $request->input('title'),
             'description'   => $request->input('description'),
             'theme'         => $request->input('theme'),
+            'slug'          => $slug
         ]);
 
         if ($room) {
@@ -104,5 +109,51 @@ class RoomController extends Controller
     {
         $rooms = Room::with('meets')->orderBy('id', 'DESC')->get();
         return View('admin.room.listing', ['rooms' => $rooms]);
+    }
+
+    private function slugify($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+        // transliterate
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // remove duplicate -
+        $text = preg_replace('~-+~', '-', $text);
+
+        // lowercase
+        $text = strtolower($text);
+
+        if (empty($text)) {
+            return 'n-a';
+        }
+
+        return $text;
+    }
+
+    private function hasSlug($slug)
+    {
+        $check = Room::where('slug', $slug)->first();
+
+        if ($check) {
+            preg_match('/(-)[0-9]+$/is', $slug, $matched);
+            if ($matched) {
+                $counter = str_replace('-', '', $matched[0]);
+                $counter = '-' . (((int) $counter) + 1);
+                $slug = str_replace($matched[0], $counter, $slug);
+            } else {
+                $slug .= '-1';
+            }
+            $slug = $this->hasSlug($slug);
+        }
+
+        return $slug;
     }
 }
