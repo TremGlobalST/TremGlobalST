@@ -9,5 +9,5 @@ class Welcome extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['header_image', 'code', 'welcome_text'];
+    protected $fillable = ['header_image', 'code', 'welcome_text', 'welcome_sub_text'];
 }

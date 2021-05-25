@@ -20,6 +20,7 @@ class WelcomeController extends Controller
         $welcome->header_image = $request->input('header_image');
         $welcome->code = $request->input('code');
         $welcome->welcome_text = $request->input('welcome_text');
+        $welcome->welcome_sub_text = $request->input('welcome_sub_text');
         
         if ($welcome->save()) {
             return back()->withInput()->with('success', 'Ekran Kaydedildi');

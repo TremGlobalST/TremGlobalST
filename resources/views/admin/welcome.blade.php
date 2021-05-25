@@ -34,14 +34,14 @@
                             @csrf
                             <div class="form-row align-items-center">
                                 <div class="col-10">
-                                    <label class="mr-sm-2" for="inlineFormInput">Header Image URL (e.g. https://tremglobal.com/images/logo.jpg)</label>
-                                    <input type="text" class="form-control mb-2" id="inlineFormInput"
-                                        placeholder="e.g. https://tremglobal.com/images/logo.jpg" name="header_image" value="{{ $welcome->header_image }}">
-                                </div>
-                                <div class="col-10">
                                     <label class="mr-sm-2" for="inlineFormInput">Welcome Text</label>
                                     <input type="text" class="form-control mb-2" id="inlineFormInput"
                                         placeholder="Welcome Text" name="welcome_text" value="{{ $welcome->welcome_text }}">
+                                </div>
+                                <div class="col-10">
+                                    <label class="mr-sm-2" for="inlineFormInput">Welcome Sub Text</label>
+                                    <input type="text" class="form-control mb-2" id="inlineFormInput"
+                                        placeholder="Welcome Sub Text" name="welcome_sub_text" value="{{ $welcome->welcome_sub_text }}">
                                 </div>
                                 <div class="col-10">
                                     <label class="mr-sm-2" for="inlineFormInput">Youtube Video Code (e.g. 3EnUYify6AA)</label>
