@@ -4,92 +4,60 @@
 
 @section('links')
     <style type="text/css">
-        @import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Basic', sans-serif;
-        }
-
-        body {
-            background: #ecdfce;
-        }
-
-        #header {
-            background: url({{ $welcome->header_image ?? '/images/burak-ozcivit-commercial-desktop2.jpg' }}) no-repeat;
-            background-size: cover;
-            width: 100%;
-            height: 300px;
-        }
-
-        #content {
-            display: flex;
-            margin-top: -2rem;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #content .item-phone {
-            background: url(/images/turkish-citizenship-acquisition-process.png) no-repeat;
-            background-size: cover;
-            width: 15%;
-            height: 350px;
-        }
-
-        #content .video-container {
-            width: 45%;
-            height: 300px;
-            border-radius: 5px;
-            box-shadow: 0 0 36px 3px #ce713b;
-            margin: 0 2rem;
-        }
-
-        #content .logos {
-            width: 20%;
-            height: auto;
-        }
-
-        #content .logos img {
-            margin: 1rem;
-        }
-
-        #welcome-text {
-            position: absolute;
-            font-size: 3rem;
-            line-height: 3rem;
-            top: 9%;
-            left: 35%;
-            /*font-weight: 700;*/
-            color: #fff;
-            text-shadow: 1px 1px #ce713b;
-            text-align: center;
-
-            background: #000;
-            padding: .1rem;
-            border-radius: 15px;
-            box-shadow: 20px 11px 18px 2px #ce713b;
-            text-transform: uppercase;
-            // Sort out nasty text fuzz
-            transform: translate3d(0, 0, 0);
-            -webkit-font-smoothing: antialiased;
-            -webkit-font-kerning: normal;
-            -webkit-text-size-adjust: 100%;
-            width: 30%;
-        }
-
-        .Words-line {
+         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: url(images/bg_welcome.jpg) no-repeat;
+      background-size: auto;
+    }
+    img#bo{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 45.5%;
+    }
+    #logo-wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 2.5rem;
+      height: auto;
+      align-items: flex-start;
+    }
+    #logo-wrapper img.invest{
+      width: 14%;
+    }
+    #content {
+      display: flex;
+      flex-direction: column;
+      width: 51%;
+      margin-left: 46.8%;
+      height: auto;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #content .welcomeText {
+      font-family: 'Bebas Neue', cursive;
+      width: 764px;
+      height: 318px;
+      background: url(images/textbg.svg) no-repeat;
+      background-size: auto;
+      color: #fff;
+      text-align: center;
+      line-height: 7.5rem;
+      justify-content: center;
+    }
+    .Words-line {
             overflow: hidden;
             position: relative;
         }
 
         .Words-line:nth-child(odd) {
-            transform: skew(60deg, -6deg) scaleY(0.66667);
+            transform: skew(0deg, -7deg) scaleY(0.96667);
         }
 
         .Words-line:nth-child(even) {
-            transform: skew(0deg, -6deg) scaleY(1.33333);
+            transform: skew(0deg, -3deg) scaleY(1.33333);
         }
 
         .Words-line:nth-child(1) {
@@ -119,11 +87,73 @@
         .Words-line:nth-child(7) {
             left: 203px;
         }
-        .video-container {
-            width: 100vw;
-            height: 100vh;
+
+
+        .Words-line2 {
             overflow: hidden;
             position: relative;
+        }
+
+        .Words-line2:nth-child(odd) {
+            transform: skew(0deg, -3deg) scaleY(0.66667);
+        }
+
+        .Words-line2:nth-child(even) {
+            transform: skew(0deg, -7deg) scaleY(1);
+        }
+
+        .Words-line2:nth-child(1) {
+            left: 29px;
+        }
+
+        .Words-line2:nth-child(2) {
+            left: 58px;
+        }
+
+        .Words-line2:nth-child(3) {
+            left: 87px;
+        }
+
+        .Words-line2:nth-child(4) {
+            left: 116px;
+        }
+
+        .Words-line2:nth-child(5) {
+            left: 145px;
+        }
+
+        .Words-line2:nth-child(6) {
+            left: 174px;
+        }
+
+        .Words-line2:nth-child(7) {
+            left: 203px;
+        }
+
+        .first {
+          margin-top: 1.5rem;
+          font-size: 6rem;
+          margin-left: -5.5rem;
+          font-stretch: 50%;
+          line-height: 7.5rem;
+        }
+        .second {
+          font-size: 10rem;
+          margin-left: -5rem;
+          line-height: 12rem;
+          margin-top: -2.5rem;
+        }
+        img.sign {
+          width: 55%;
+          height: auto;
+          margin-top: -4rem;
+        }
+        .video-container {
+            width: 100%;
+            height: 408px;
+            overflow: hidden;
+            position: relative;
+            margin-top: -1rem;
         }
 
         .video-container iframe,
@@ -142,35 +172,35 @@
             width: 100%;
             height: calc(100% + 120px);
         }
-        @media (min-width: 1680px) {
-            #welcome-text {
-                top: 6%;
-            }
-            #content .video-container {
-                width: 65%;
-            height: 500px;
-        }
+        @media (max-width: 1680px) {
+          #logo-wrapper {
+          padding: 2.5rem 2.5rem 0;
+          }
         }
     </style>
 @endsection
 
 @section('content')
-    <div id="header"></div>
-    <div id="welcome-text" class="Words-line">
-        {{ $welcome->welcome_text ?? 'welcome to our famıly...' }}
+<img src="/images/bo.svg" id="bo">
+<div id="logo-wrapper">
+  <img src="/images/invest.svg" class="invest">
+  <img src="/images/tremglobal.svg" class="invest">
+  <img src="/images/torholding.svg" class="invest">
+</div>
+<div id="content">
+  <div class="welcomeText">
+    <div class="en">
+      <div class="Words-line first">{{ $welcome->welcome_text ?? 'welcome to' }}</div>
+    <div class="Words-line2 second">{{ $welcome->welcome_sub_text ?? 'our famıly...' }}</div>
     </div>
-    <div id="content">
-        <div class="logos">
-            <img src="/images/tremglobal-logo.svg">
-            <img src="/images/torlogo.svg">
-        </div>
-        <div class="video-container">
-            <div class="video-foreground">
-                <div id="player"></div>
-            </div>
-        </div>
-        <div class="item-phone"></div>
-    </div>
+  </div>
+  <img src="/images/imza.svg" class="sign">
+  <div class="video-container">
+      <div class="video-foreground">
+          <div id="player"></div>
+      </div>
+  </div>
+</div>
 @endsection
 
 @section('scripts')
