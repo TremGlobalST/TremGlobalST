@@ -172,6 +172,7 @@
             width: 100%;
             height: calc(100% + 120px);
         }
+
         @media (max-width: 1680px) {
           #logo-wrapper {
           padding: 2.5rem 2.5rem 0;
