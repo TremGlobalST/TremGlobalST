@@ -38,14 +38,15 @@
     }
     #content .welcomeText {
       font-family: 'Bebas Neue', cursive;
-      width: 764px;
-      height: 318px;
+      width: 600px;
+      height: 250px;
       background: url(images/textbg.svg) no-repeat;
-      background-size: auto;
+      background-size: cover;
       color: #fff;
       text-align: center;
       line-height: 7.5rem;
       justify-content: center;
+      margin-top: -1.5rem;
     }
     .Words-line {
             overflow: hidden;
@@ -131,17 +132,17 @@
         }
 
         .first {
-          margin-top: 1.5rem;
-          font-size: 6rem;
+          margin-top: .5rem;
+          font-size: 5rem;
           margin-left: -5.5rem;
           font-stretch: 50%;
           line-height: 7.5rem;
         }
         .second {
-          font-size: 10rem;
+          font-size: 8.5rem;
           margin-left: -5rem;
           line-height: 12rem;
-          margin-top: -2.5rem;
+          margin-top: -4rem;
         }
         img.sign {
           width: 55%;
