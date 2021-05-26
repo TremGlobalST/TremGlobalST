@@ -20,12 +20,12 @@
     #logo-wrapper {
       display: flex;
       justify-content: space-between;
-      padding: 2.5rem;
+      padding: 1rem 2.5rem;
       height: auto;
       align-items: flex-start;
     }
     #logo-wrapper img.invest{
-      width: 14%;
+      width: 100%;
     }
     #content {
       display: flex;
@@ -185,9 +185,7 @@
 @section('content')
 <img src="/images/bo.svg" id="bo">
 <div id="logo-wrapper">
-  <img src="/images/invest.svg" class="invest">
-  <img src="/images/tremglobal.svg" class="invest">
-  <img src="/images/torholding.svg" class="invest">
+  <img src="/images/logos.svg" class="invest">
 </div>
 <div id="content">
   <div class="welcomeText">
