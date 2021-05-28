@@ -15,7 +15,7 @@
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 45.5%;
+      width: 43.5%;
     }
     #logo-wrapper {
       display: flex;
