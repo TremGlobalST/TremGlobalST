@@ -75,6 +75,12 @@ body {
                 video {
                     max-width: 100%;
                 }
+                @media (max-width: 1024px) {
+                    width: 80%;
+                }
+                @media (min-width: 1025px) and (max-width: 1366px) {
+                    width: 80%;
+                }
             }
             .footer {
                 display: flex;

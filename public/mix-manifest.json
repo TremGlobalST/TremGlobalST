@@ -1,7 +1,7 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/calendar.render.js": "/js/calendar.render.js",
-    "/js/vue.app.js": "/js/vue.app.js",
-    "/css/app.css": "/css/app.css",
-    "/css/screen.css": "/css/screen.css"
+    "/js/app.js": "/js/app.js?id=4c830463ca8e816fca1c",
+    "/js/calendar.render.js": "/js/calendar.render.js?id=22e70cee237db3f1a113",
+    "/js/vue.app.js": "/js/vue.app.js?id=c87f84991f95c624c196",
+    "/css/app.css": "/css/app.css?id=e078c9303a82d01e31ff",
+    "/css/screen.css": "/css/screen.css?id=c126439c0e03cc8f4fdb"
 }
