@@ -173,6 +173,19 @@
             width: 100%;
             height: calc(100% + 120px);
         }
+        .ofs{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: 0;
+        border: none;
+        background: #dedede;
+        box-shadow: 2px 2px 6px 3px #ccc;
+        padding: 20px;
+        font-weight: bold;
+        font-size: 22px;
+        color: gray;
+    }
 
         @media (max-width: 1680px) {
           #logo-wrapper {
@@ -183,6 +196,7 @@
 @endsection
 
 @section('content')
+<div onclick="toggleBtns()">
 <img src="/images/bo.svg" id="bo">
 <div id="logo-wrapper">
   <img src="/images/logos.svg" class="invest">
@@ -200,6 +214,9 @@
           <div id="player"></div>
       </div>
   </div>
+  
+</div>
+<button class="ofs" onclick="toggleFullscreen(event)">fullscreen</button>
 </div>
 @endsection
 
@@ -276,4 +293,53 @@
         }
 
     </script>
+    <script>
+      /* Get the documentElement (<html>) to display the page in fullscreen */
+      var elem = document.documentElement;
+
+      var showBtn = false;
+      var isFull = false;
+
+      function toggleBtns() {
+          if (showBtn) {
+              document.getElementsByClassName('ofs')[0].style.opacity = 0;
+          } else {
+              document.getElementsByClassName('ofs')[0].style.opacity = 1;
+          }
+          showBtn = !showBtn;
+      }
+
+      function toggleFullscreen(e) {
+          if (isFull) {
+              closeFullscreen(e);
+          } else {
+              openFullscreen(e);
+          }
+          isFull = !isFull;
+      }
+      
+      /* View in fullscreen */
+      function openFullscreen(e) {
+          e.preventDefault();
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+          elem.msRequestFullscreen();
+        }
+      }
+      
+      /* Close fullscreen */
+      function closeFullscreen(e) {
+          e.preventDefault();
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+          document.msExitFullscreen();
+        }
+      }
+      </script>
 @endsection
