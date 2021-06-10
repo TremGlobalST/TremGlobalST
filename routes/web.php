@@ -30,6 +30,7 @@ Route::get('/sunum', function() {
 });
 Route::get('/tv-screen', [TvScreenController::class, 'index'])->name('tv_screen');
 Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/static-image', [WelcomeController::class, 'staticImage'])->name('static');
 
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
    Route::get('/', [AdminHomeController::class, 'index'])->name('admin');

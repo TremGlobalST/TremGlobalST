@@ -12,4 +12,9 @@ class WelcomeController extends Controller
         $welcome = Welcome::first();
         return View('welcome', ['welcome' => $welcome]);
     }
+
+    public function staticImage()
+    {
+        return View('static');
+    }
 }
