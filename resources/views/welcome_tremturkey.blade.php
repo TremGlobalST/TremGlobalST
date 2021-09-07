@@ -101,7 +101,7 @@
             player = new YT.Player('player', {
                 height: '100%',
                 width: '100%',
-                videoId: '{{ $welcome->code ?? "8iwD-dHm9Uo" }}',
+                videoId: '{{ $welcome->code ?? "JvgZOJnfb1A" }}',
                 allowfullscreen: true,
                 playerVars: {
                     'playsinline': 1,
