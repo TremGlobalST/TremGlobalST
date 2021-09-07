@@ -4,7 +4,7 @@
 
 @section('links')
 <style>
-.tv-link, .welcome-link {
+.tv-link, .welcome-link, .welcome-link-tr {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -21,7 +21,11 @@
     right: 260px;
     background: blue;
 }
-.tv-link a, .welcome-link a{
+.welcome-link-tr {
+    right: 490px;
+    background: blue;
+}
+.tv-link a, .welcome-link a, .welcome-link-tr a{
     width: 100%;
     height: 100%;
     text-align: center;
@@ -47,6 +51,11 @@
     <div class="welcome-link">
         <a href="{{ route('welcome') }}">
             Welcome Screen
+        </a>
+    </div>
+    <div class="welcome-link-tr">
+        <a href="{{ route('welcome_tremturkey') }}">
+            Welcome TremTurkey Screen
         </a>
     </div>
     <div class="tv-link">

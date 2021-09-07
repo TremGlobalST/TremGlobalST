@@ -162,6 +162,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('welcome_tremturkey_edit') }}" class="nav-link {{ Route::current()->getName() == 'welcome_tremturkey_edit' ? 'active' : null }}">
+                            <i class="nav-icon fas fa-tv"></i>
+                            <p>
+                                Welcome TremTurkey Screen
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('video_add') }}" class="nav-link {{ Route::current()->getName() == 'video_add' ? 'active' : null }}">
                             <i class="nav-icon fas fa-tv"></i>
                             <p>

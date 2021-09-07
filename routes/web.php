@@ -30,6 +30,7 @@ Route::get('/sunum', function() {
 });
 Route::get('/tv-screen', [TvScreenController::class, 'index'])->name('tv_screen');
 Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/welcome-tremturkey', [WelcomeController::class, 'indexTremTurkey'])->name('welcome_tremturkey');
 Route::get('/static-image', [WelcomeController::class, 'staticImage'])->name('static');
 
 Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
@@ -40,6 +41,9 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
 
    Route::get('/welcome', [AdminWelcomeController::class, 'index'])->name('welcome_edit');
    Route::post('/welcome', [AdminWelcomeController::class, 'save'])->name('welcome_save');
+
+   Route::get('/welcome-tremturkey', [AdminWelcomeController::class, 'indexTremTurkey'])->name('welcome_tremturkey_edit');
+   Route::post('/welcome-tremturkey', [AdminWelcomeController::class, 'saveTremTurkey'])->name('welcome_tremturkey_save');
 
    Route::group(['prefix' => '/rooms'], function () {
        Route::get('/listing', [AdminRoomController::class, 'listing'])->name('rooms');
